@@ -1,4 +1,6 @@
 
+process.env.API_KEY = 'superSecurePassword123!'
+
 const { server } = require('../index')
 
 exports.mochaHooks = {
