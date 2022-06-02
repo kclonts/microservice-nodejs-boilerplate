@@ -15,19 +15,20 @@ module.exports = {
   app
 }
 
-app.use(express.json())
+app.use(express.raw({ type: '*/json' }))
 app.use(middlewareSetup)
 app.use(middlewareAuth)
-app.use(middlewareErrorHandler)
 
-app.get('/multiply', routesMultiply);
+app.post('/multiply', routesMultiply);
 
-app.get('/log', () => {
+app.post('/log', () => {
 
 })
 
 app.post('/api', () => {
 
 })
+
+app.use(middlewareErrorHandler)
 
 module.exports.server = app.listen(8080)
